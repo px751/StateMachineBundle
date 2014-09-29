@@ -36,11 +36,13 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('graph')->defaultValue('default')->end()
             ->scalarNode('property_path')->defaultValue('state')->end()
             ->scalarNode('state_machine_class')->defaultValue('SM\\StateMachine\\StateMachine')->end()
+            ->scalarNode('texts')->isRequired()->end()
         ;
 
         $this->addStateSection($configNode);
         $this->addTransitionSection($configNode);
         $this->addCallbackSection($configNode);
+        $this->addTextSection($configNode);
 
         $configNode->end()->end();
 
@@ -91,6 +93,39 @@ class Configuration implements ConfigurationInterface
         $this->addSubCallbackSection($callbacks, 'after');
 
         $callbacks->end()->end();
+    }
+
+    /**
+     * @param NodeBuilder $configNode
+     */
+    protected function addTextSection(NodeBuilder $configNode)
+    {
+        $texts = $configNode;
+
+        $configNode
+            ->arrayNode('texts')
+                ->useAttributeAsKey('name')
+                ->prototype('array')
+                    ->children()
+                        ->arrayNode('states')
+                            ->children()
+                                ->variableNode('me')->end()
+                                ->variableNode('other')->end()
+                            ->end()
+                        ->end() 
+                        ->variableNode('state')->end()
+                        ->arrayNode('texts')
+                            ->children()
+                                ->variableNode('one')->end()
+                                ->variableNode('two')->end()
+                                ->variableNode('three')->end()
+                            ->end()
+                        ->end()
+                        ->variableNode('buttons')
+                    ->end()
+                ->end()
+            ->end();
+            
     }
 
     /**
