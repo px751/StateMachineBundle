@@ -114,6 +114,7 @@ class Configuration implements ConfigurationInterface
                             ->end()
                         ->end() 
                         ->variableNode('state')->end()
+                        ->variableNode('button')->end()
                         ->arrayNode('texts')
                             ->children()
                                 ->variableNode('one')->end()
