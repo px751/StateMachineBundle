@@ -19,7 +19,7 @@
     "require": {
         "php":                      ">5.3.0",
         "symfony/framework-bundle": "~2.1",
-        "winzou/state-machine":     "dev-master"
+        "winzou/state-machine":     "dev-texts"
     },
     "require-dev": {
         "phpspec/phpspec": "~2.0"
