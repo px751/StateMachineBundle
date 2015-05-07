@@ -119,9 +119,12 @@ class Configuration implements ConfigurationInterface
                         ->variableNode('top_buttons')->end()
                         ->arrayNode('texts')
                             ->children()
+                                ->variableNode('title')->end()
+                                ->variableNode('text')->end()
                                 ->variableNode('one')->end()
                                 ->variableNode('two')->end()
                                 ->variableNode('three')->end()
+                                ->variableNode('four')->end()
                                 ->variableNode('me')->end()
                                 ->variableNode('other')->end()
                             ->end()
@@ -129,7 +132,7 @@ class Configuration implements ConfigurationInterface
                         ->variableNode('buttons')
                     ->end()
                 ->end()
-            ->end();      
+            ->end();  
     }
 
     /**
