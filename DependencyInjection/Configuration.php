@@ -115,6 +115,7 @@ class Configuration implements ConfigurationInterface
                         ->end() 
                         ->variableNode('state')->end()
                         ->variableNode('postal')->end()
+                        ->variableNode('todo')->end()
                         ->variableNode('boutique')->end()
                         ->variableNode('top_buttons')->end()
                         ->arrayNode('texts')
